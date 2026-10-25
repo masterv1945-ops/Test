@@ -1,0 +1,76 @@
+/* مدرسهٔ من — theme.css
+   لایهٔ طراحی مشترک؛ آخرین فایل استایل در <head> است و فقط ظاهر را عوض می‌کند.
+   رنگ‌ها از متغیرهای فعلی (تم ۵ رنگ × روشن/تاریک) می‌آیند، پس انتخابگر تم سر جایش کار می‌کند. */
+
+:root{--margin:#f0627a;--r-xl:30px;--r-lg:24px;--r-md:16px;--lift:cubic-bezier(.2,.8,.25,1)}
+*{letter-spacing:0!important}
+::selection{background:rgba(var(--brand-rgb,8,185,184),.28)}
+html{scrollbar-color:rgba(var(--brand-rgb,8,185,184),.45) transparent}
+body{font-family:Vazirmatn,Tahoma,sans-serif!important;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{background:
+  radial-gradient(56rem 26rem at 100% -8%,rgba(var(--brand-rgb,8,185,184),.2),transparent 62%),
+  radial-gradient(44rem 30rem at -8% 38%,rgba(var(--brand-rgb,8,185,184),.1),transparent 64%),
+  radial-gradient(rgba(var(--brand-rgb,8,185,184),.075) 1px,transparent 1.5px) 0 0/22px 22px,
+  var(--bg)!important}
+
+/* نوار بالا: تنها لحظهٔ حرکتی بدون دخالت کاربر، یک جاروی نور موقع بارگذاری */
+.top,.topbar{
+  background:
+    radial-gradient(20rem 9rem at 10% -30%,rgba(255,255,255,.26),transparent 70%),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.055) 0 2px,transparent 2px 15px),
+    linear-gradient(120deg,var(--hero-a),var(--hero-b) 55%,var(--hero-c))!important;
+  background-size:auto,auto,200% 100%!important;
+  border-radius:0 0 26px 26px!important;
+  box-shadow:0 14px 34px -12px rgba(var(--brand-rgb,8,185,184),.55)!important;
+  animation:barSheen 1.6s var(--lift) both}
+@keyframes barSheen{from{background-position:0 0,0 0,100% 0}to{background-position:0 0,0 0,0 0}}
+
+/* کارت‌ها: حاشیهٔ سمت راست مثل حاشیهٔ دفتر مدرسه، یعنی «این یک بخش است» */
+.panel,.card,.stat,.school,.login,.tile,.notice,.credentials,.circular-item,.circular-card{
+  border-radius:var(--r-lg)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 1px 2px rgba(var(--brand-rgb,8,185,184),.06),0 16px 36px -16px rgba(var(--brand-rgb,8,185,184),.3)!important}
+.panel,.card,.stat,.notice{border-inline-start:4px solid rgba(var(--brand-rgb,8,185,184),.55)!important}
+.tile{transition:transform .25s var(--lift),box-shadow .25s var(--lift)}
+.tile:hover{transform:translateY(-4px);box-shadow:0 20px 40px -14px rgba(var(--brand-rgb,8,185,184),.42)!important}
+.tile:active{transform:scale(.97)}
+
+/* تیتر صفحه: خط قرمز حاشیهٔ دفتر */
+.page-title,.title{position:relative;padding-inline-start:16px;font-weight:800!important;line-height:1.5}
+.page-title::before,.title::before{content:"";position:absolute;inset-inline-start:0;top:.25em;bottom:.25em;width:5px;border-radius:9px;background:linear-gradient(var(--margin),rgba(240,98,122,.35))}
+.stat strong,.card-value{font-weight:800!important;font-variant-numeric:tabular-nums}
+
+/* دکمه‌ها و فیلدها */
+.primary,.primary-btn,.btn,.go{font-weight:700!important;border-radius:15px!important;
+  box-shadow:0 12px 24px -10px rgba(var(--brand-rgb,8,185,184),.6),inset 0 1px 0 rgba(255,255,255,.3)!important}
+.primary:active,.primary-btn:active,.btn:active,.go:active{transform:scale(.97)}
+.secondary,.secondary-btn,.outline,.danger,.danger-btn{box-shadow:none!important;font-weight:600}
+input,select,textarea{border-radius:14px!important;transition:border-color .2s,box-shadow .2s,background .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--teal)!important;box-shadow:0 0 0 4px rgba(var(--brand-rgb,8,185,184),.16)!important;background:var(--surface)!important}
+
+/* جدول‌ها */
+table{border-collapse:separate!important;border-spacing:0;border-radius:var(--r-md);overflow:hidden}
+th{font-weight:700!important;font-size:13px}
+tbody tr:nth-child(even) td{background:rgba(var(--brand-rgb,8,185,184),.04)}
+tbody tr:hover td{background:rgba(var(--brand-rgb,8,185,184),.1)}
+
+/* منوی کناری مدیر و معلم */
+.menu-btn,.nav button{transition:background .2s,color .2s,box-shadow .2s}
+.menu-btn:hover,.nav button:hover{background:var(--teal-soft)!important;color:var(--teal-deep)!important}
+.menu-btn.active,.nav button.active{background:var(--teal-soft)!important;color:var(--teal-deep)!important;font-weight:700!important;box-shadow:inset -4px 0 0 var(--teal)}
+.chip,.pill{font-weight:600}
+
+/* صفحهٔ ورود: دفتر خط‌دار با حاشیهٔ قرمز، تنها نقطهٔ شاخص طراحی */
+.sheet{border-radius:var(--r-xl)!important;border:1px solid var(--line)!important;
+  background-color:var(--surface)!important;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 33px,rgba(var(--brand-rgb,8,185,184),.11) 33px,rgba(var(--brand-rgb,8,185,184),.11) 34px)!important;
+  padding:40px 28px 36px 28px!important;padding-right:64px!important;
+  box-shadow:0 30px 70px -26px rgba(var(--brand-rgb,8,185,184),.5)!important}
+.sheet::before{display:block!important;content:"";position:absolute;top:0;bottom:0;right:34px;width:4px;
+  border-left:2px solid var(--margin);border-right:2px solid var(--margin);opacity:.85;transform-origin:top;animation:draw .9s .1s ease-out both}
+.sheet header::before{content:"";display:block;width:64px;height:64px;border-radius:20px;margin-bottom:18px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4 2.5 9 12 14l9.5-5Z'/%3E%3Cpath d='M6 11.2v4.6c0 1.4 2.7 3.2 6 3.2s6-1.8 6-3.2v-4.6'/%3E%3Cpath d='M21.5 9v5.5'/%3E%3C/svg%3E") center/34px no-repeat,linear-gradient(135deg,var(--hero-a),var(--hero-c));
+  box-shadow:0 18px 32px -12px rgba(var(--brand-rgb,8,185,184),.65)}
+.sheet h1{font-weight:800!important}
+@media(max-width:420px){.sheet{padding:30px 18px 28px 18px!important;padding-right:58px!important}.sheet::before{right:28px}}
+
+@media(prefers-reduced-motion:reduce){.top,.topbar,.sheet::before{animation:none!important}.tile{transition:none}}
